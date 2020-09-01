@@ -13,6 +13,11 @@ html
                             span.fa.fa-sign-in.pr-2
                             .
                                 Login
+
+                        if(message>0)
+                            .alert.alert-danger
+                                message
+
                         form(action='/login' method='post')
                             .form-group
                                 label(for='email') Email

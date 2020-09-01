@@ -12,7 +12,12 @@ html
                         h1.text-center
                             span.fa.fa-sign-in.pr-2
                             .
-                                Register
+                                Signup
+                        
+                        if(message>0)
+                            .alert.alert-danger
+                                message
+
                         form(action='/signup' method='post')
                             .form-group
                                 label(for='email') Email
