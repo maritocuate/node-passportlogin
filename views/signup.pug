@@ -1,0 +1,32 @@
+include partials/head
+
+html
+    head
+        title Login Node - Signup
+        +cdns()    
+    body.signup
+        .container
+            .col-6.mx-auto
+                .card.mt-5
+                    .card-body
+                        h1.text-center
+                            span.fa.fa-sign-in.pr-2
+                            .
+                                Register
+                        form(action='/signup' method='post')
+                            .form-group
+                                label(for='email') Email
+                                input(type='email' name='email').form-control
+
+                                label(for='password') Password
+                                input(type='password' name='password').form-control
+
+                                input(type='submit' value='Enviar').btn.btn-dark.btn-lg.mt-3
+                        hr
+                        .text-center
+                            p
+                                .
+                                    Already have an account? 
+                                a(href='/login') Login 
+                                | or go 
+                                a(href='/') Home

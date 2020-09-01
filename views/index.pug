@@ -1,0 +1,22 @@
+include partials/head
+
+html
+    head
+        title Login Node
+        +cdns()    
+    body
+        .container
+            .card.text-center.mt-5
+                .card-body
+                    h1
+                        span.fa.fa-lock.pr-2
+                        .
+                            Login or Register
+                    a(href='/login').btn.btn-light
+                        span.fa.fa-user.pr-2
+                        .
+                            Local login
+                    a(href='/signup').btn.btn-light
+                        span.fa.fa-user.pr-2
+                        .
+                            Local signup
