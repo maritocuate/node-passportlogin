@@ -23,7 +23,7 @@ const userSchema = new mongoose.Schema({
         password: String,
         id: String,
         token: String
-    },
+    }
 })
 
 userSchema.methods.generateHash = function(password){
@@ -34,4 +34,4 @@ userSchema.methods.validatePassword = function(password){
     return bcrypt.compareSync(password, this.local.password)
 }
 
-module.exports = mongoose.model('User'. userSchema)
+module.exports = mongoose.model('User', userSchema)

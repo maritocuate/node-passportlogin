@@ -5,10 +5,10 @@ const { deleteOne } = require('../app/models/user')
 module.exports = function(passport) {
     
     passport.serializeUser( (user, done)=>{
-        done(null, userId)
+        done(null, user.id)
     })
 
-    passport.deserializeUser( (id, done){
+    passport.deserializeUser( (id, done)=>{
         User.findById(id, (error, user)=>{
             done(error, user)
         })
@@ -22,15 +22,17 @@ module.exports = function(passport) {
     },
     (req, email, password, done)=>{
         User.findOne({'local.email':email}, (error, user)=>{
-            if(error){ return done(error) }
+            if(error){ 
+                return done(error)
+            }
             if(user){
                 return done(null, false, req.flash('signupMessage', 'the email is already taken'))
             }else{
                 var newUser = new User()
                 newUser.local.email = email
                 newUser.local.password = newUser.generateHash(password)
-                newUser.save(function(error){
-                    if(error){ throw error }
+                newUser.save(function(err){
+                    if(err){ throw err }
                     return done(null, newUser)
                 })
             }
