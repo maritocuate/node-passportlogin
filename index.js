@@ -18,7 +18,7 @@ mongoose.connect(url, {
     useUnifiedTopology: true  
 })
 
-//require('./config/passport')(passport)
+require('./config/passport')(passport)
 
 // settings
 app.set('views', path.join(__dirname, 'views'))
