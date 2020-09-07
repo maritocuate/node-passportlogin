@@ -1,1 +1,31 @@
-h1 Profile
+include partials/head
+
+html
+    head
+        title Profile
+        +cdns()
+    body
+        .container
+            header.text-center
+                h1 Profile Page
+                a(href='/logout').btn.btn-light.btn-sm logout
+            
+            hr
+
+            .container
+                .col-sm-6
+                    .card
+                        .card-body
+                            h3.card-title
+                                span.fa.fa-user
+                                .
+                                    Local
+                            p
+                                strong id 
+                                a= user._id
+                                br
+                                strong email 
+                                a= user.local.email
+                                br
+                                strong password 
+                                a= user.local.password
